@@ -1,0 +1,23 @@
+# --- Important global application properties
+application: providenceclarity # appengine ID. do not change.
+version: dev # version of app. note: string, not int.
+runtime: python # runtime in use. do not change from 'python'.
+api_version: 1 # should not be changed on a whim.
+
+# --- Set expiration high during production
+default_expiration: 1m
+
+inbound_services:
+- xmpp_message
+- mail
+
+handlers:
+
+#### Service Handlers
+- url: /_ah/queue/deferred
+  script: $PYTHON_LIB/google/appengine/ext/deferred/deferred.py
+  login: admin
+
+#### Main Handler
+- url: /.*
+  script: main.py

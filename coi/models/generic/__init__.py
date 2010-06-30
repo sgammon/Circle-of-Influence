@@ -1,0 +1,1 @@
+#### GENERIC MODELS INIT
