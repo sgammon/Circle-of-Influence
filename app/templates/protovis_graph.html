@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <title>ProvidenceClarity: Protovis Node Renderer Demo</title>
+
+    <script type="text/javascript" src="/assets/js/static/jquery-1.4.2-raw.js"></script>
+    <script type="text/javascript" src="/assets/js/static/protovis-r3.2.js"></script>
+    <script type="text/javascript" src="http://vis.stanford.edu/protovis/ex/miserables.js"></script>
+
+    <style type="text/css">
+
+		body
+		{
+		    background: #333;
+		    color: #fff;
+		    font: 300 100.1% "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
+			margin:0;
+		}
+		
+		#container
+		{
+			margin-left:auto;
+			margin-right:auto;
+			width:99%;
+			height:99%;
+			text-align:center;
+		}
+		
+		#viz_content
+		{
+		    height: 89%;
+			background:white;
+		    width: 98%;
+			margin-left:auto;
+			margin-right:auto;
+			text-align:center;
+		}		
+		
+		#header
+		{
+			padding-top:1px;
+			padding-left:14px;
+			text-align:left;
+		}
+		
+		#footer
+		{
+			padding-bottom:1px;
+			padding-right:14px;
+			text-align:right;
+		    font: 300 80% "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;			
+		}
+		
+		#copy
+		{
+		    bottom: 0;
+		    font: 300 .8em "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
+		    position: absolute;
+		    right: 1em;
+		    text-align: right;
+		}
+		
+		#copy a
+		{
+		    color: #fff;
+		}
+
+		p a
+		{
+			color:#888;
+		}
+
+    </style>
+
+  </head>
+  <body>
+	<div id='container'>
+		
+		<div id='header'>
+			<p>Providence/Clarity: Protovis Node Renderer Demo</p>
+		</div>
+		
+		<div id='viz_content'>
+			
+		    <script type="text/javascript+protovis">
+
+				var w = $("#viz_content").width(),
+				    h = $("#viz_content").height(),
+				    colors = pv.Colors.category19();
+
+				var vis = new pv.Panel(document.getElementById('viz_content'))
+				    .width(w)
+				    .height(h)
+				    .fillStyle("white")
+				    .event("mousedown", pv.Behavior.pan())
+				    .event("mousewheel", pv.Behavior.zoom());
+
+				var force = vis.add(pv.Layout.Force)
+				    .nodes(miserables.nodes)
+				    .links(miserables.links);
+
+				force.link.add(pv.Line);
+
+				force.node.add(pv.Dot)
+				    .size(function(d) (d.linkDegree + 4) * Math.pow(this.scale, -1.5))
+				    .fillStyle(function(d) d.fix ? "brown" : colors(d.group))
+				    .strokeStyle(function() this.fillStyle().darker())
+				    .lineWidth(1)
+				    .title(function(d) d.nodeName)
+				    .event("mousedown", pv.Behavior.drag())
+				    .event("drag", force);
+
+				vis.render();
+
+		    </script>
+			
+		</div>
+		
+		<div id='footer'>
+			<p>Copyright &copy;2010, Sam Gammon &lt;<a href="mailto:s@providenceclarity.com" alt="mailto: sam gammon">sg@samgammon.com</a>&gt;</p>
+		</div>
+		
+	</div>
+	
+  </body>
+</html>
