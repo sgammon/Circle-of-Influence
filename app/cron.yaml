@@ -1,0 +1,40 @@
+cron:
+    
+# Obligatory default queue
+- name: default
+  rate: 1/s
+
+# Outgoing Data: Mail
+- name: "Outgoing: Mail"
+  rate: 2000/d
+  bucket_size: 10
+
+# Outgoing Data: XMPP
+- name: "Outgoing: XMPP"
+  rate: 2000/d
+  bucket_size: 10
+  
+# Input Queues
+- name: "Input: Scraper Jobs"
+  rate: 1/m
+  bucket_size: 10
+
+# Analyzer Queues
+- name: "Analyzer: Object"
+  rate: 1/m
+  bucket_size: 10
+- name: "Analyzer: Relation"
+  rate: 1/m
+  bucket_size: 10
+- name: "Analyzer: Statistics"
+  rate: 1/m
+  bucket_size: 10
+- name: "Analyzer: Map/Reduce"
+  rate: 1/m
+  bucket_size: 10
+
+# Data Management Queues
+- name: "Data: Hygiene Service"
+  rate: 1/m
+  bucket_size: 10
+- name: ""
