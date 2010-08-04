@@ -1,40 +1,46 @@
 cron:
     
-# Obligatory default queue
-- name: default
-  rate: 1/s
-
+# Input Queues
+- description: "Input: Scraper Scheduler"
+  url: /_pc/input/scraper
+  schedule: every 3 hours
+    
 # Outgoing Data: Mail
-- name: "Outgoing: Mail"
-  rate: 2000/d
-  bucket_size: 10
+- description: "Outgoing: Mail"
+  url: /_pc/worker/outgoing/mail
+  schedule: every 3 hours
 
 # Outgoing Data: XMPP
-- name: "Outgoing: XMPP"
-  rate: 2000/d
-  bucket_size: 10
+- description: "Outgoing: XMPP"
+  url: /_pc/worker/outgoing/xmpp
+  schedule: every 3 hours
   
-# Input Queues
-- name: "Input: Scraper Jobs"
-  rate: 1/m
-  bucket_size: 10
-
 # Analyzer Queues
-- name: "Analyzer: Object"
-  rate: 1/m
-  bucket_size: 10
-- name: "Analyzer: Relation"
-  rate: 1/m
-  bucket_size: 10
-- name: "Analyzer: Statistics"
-  rate: 1/m
-  bucket_size: 10
-- name: "Analyzer: Map/Reduce"
-  rate: 1/m
-  bucket_size: 10
-
+- description: "Analyzer: Object"
+  url: /_pc/worker/analyzer/object
+  schedule: every 3 hours
+    
+- description: "Analyzer: Relation"
+  url: /_pc/worker/analyzer/relation
+  schedule: every 3 hours
+    
+- description: "Analyzer: Statistics"
+  url: /_pc/worker/analyzer/stat
+  schedule: every 3 hours
+    
+- description: "Analyzer: Map/Reduce"
+  url: /_pc/worker/analyzer/mapreduce
+  schedule: every 3 hours
+  
 # Data Management Queues
-- name: "Data: Hygiene Service"
-  rate: 1/m
-  bucket_size: 10
-- name: ""
+- description: "Data: Hygiene Service"
+  url: /_pc/worker/data/hygiene
+  schedule: every 3 hours
+    
+- description: "Data: Expiration Service"
+  url: /_pc/worker/data/expiration
+  schedule: every 3 hours
+  
+- description: "Data: Scheduling Service"
+  url: /_pc/worker/data/scheduler
+  schedule: every 3 hours  

@@ -20,7 +20,8 @@ def get_rules(app):
         A list of class:`tipfy.Rule` instances.
     """
     rules = [
-        Rule('/', endpoint='pc-index', handler='coi.handlers.DemoHandler')
+        Rule('/', endpoint='pc-index', handler='coi.handlers.DemoHandler'),
+        Rule('/favicon.ico', endpoint='favicon', handler='coi.handlers.FaviconHandler'),
     ]
 
     return rules

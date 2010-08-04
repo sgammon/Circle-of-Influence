@@ -1,6 +1,6 @@
 # --- Important global application properties
 application: providenceclarity # appengine ID. do not change.
-version: dev # version of app. note: string, not int.
+version: 1-dev # version of app. note: string, not int.
 runtime: python # runtime in use. do not change from 'python'.
 api_version: 1 # should not be changed on a whim.
 
@@ -12,16 +12,59 @@ inbound_services:
 - xmpp_message
 - mail
 
+# --- Admin Console Entries
+admin_console:
+ pages:
+ - url: /_pc/manage/
+   name: "P/C Manager"
+ - url: /_pc/manage/data
+   name: "P/C Data"
+
+
 handlers:
     
-## temp admin panel
-- url: /appengine_admin_media
-  static_dir: appengine_admin/media
-  secure: never
+#### Static File Handlers
+- url: /assets/images/static # static images
+  static_dir: coi/assets/images/static
+- url: /assets/images/.* # dynamic images
+  script: coi/assets/images/retrieve.py
+- url: /assets/js/static # static js
+  static_dir: coi/assets/js/static
+- url: /assets/js/.* # dynamic js
+  script: coi/assets/js/retrieve.py
+- url: /assets/style/static # static style
+  static_dir: coi/assets/style/static
+- url: /assets/style/.* # dynamic style
+  script: coi/assets/style/retrieve.py
 
 #### Service Handlers
 - url: /_ah/queue/deferred
   script: $PYTHON_LIB/google/appengine/ext/deferred/deferred.py
+  login: admin
+
+#### Providence/Clarity Gateway
+- url: /_pc/cp.*
+  script: $PYTHON_LIB/google/appengine/ext/admin
+  login: admin
+  secure: always
+- url: /_pc(/.*)?
+  script: ProvidenceClarity/handlers/gateway.py
+  login: admin
+  secure: optional
+  
+# Incoming Services
+- url: /_ah/xmpp/message/chat/ # incoming XMPP/Jabber
+  script: ProvidenceClarity/handlers/gateway.py
+  login: admin
+  secure: optional
+- url: /_ah/mail/.+ # All incoming mail addresses
+  script: ProvidenceClarity/handlers/gateway.py
+  login: admin
+  secure: optional
+
+### Data Stuff
+- url: /_data/remote_api
+  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
   login: admin
 
 #### Main Handler

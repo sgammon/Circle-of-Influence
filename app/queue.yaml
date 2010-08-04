@@ -1,1 +1,39 @@
-queues:
+queue:
+    
+# Obligatory default queue
+- name: default
+  rate: 1/s
+
+# Outgoing Data: Mail
+- name: outgoing-mail
+  rate: 2000/d
+  bucket_size: 10
+
+# Outgoing Data: XMPP
+- name: outgoing-xmpp
+  rate: 2000/d
+  bucket_size: 10
+  
+# Input Queues
+- name: input-scraper
+  rate: 1/m
+  bucket_size: 10
+
+# Analyzer Queues
+- name: analyzer-object
+  rate: 1/s
+  bucket_size: 10
+- name: analyzer-relation
+  rate: 1/s
+  bucket_size: 10
+- name: analyzer-statistics
+  rate: 1/s
+  bucket_size: 10
+- name: analyzer-mapreduce
+  rate: 1/s
+  bucket_size: 10
+
+# Data Management Queues
+- name: data-hygiene
+  rate: 1/s
+  bucket_size: 10

@@ -1,3 +1,4 @@
+from google.appengine.ext import db
 from coi.models.us.state import USState
 from coi.models.generic.legislature import LegislativeBody
 

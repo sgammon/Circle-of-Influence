@@ -59,13 +59,13 @@ class ProtoHelper(DataManager):
     def base(self):
         
         # Continents
-        self.models.append(Continent(key_name='asia'))
-        self.models.append(Continent(key_name='africa'))
-        self.models.append(Continent(key_name='europe'))
-        self.models.append(Continent(key_name='north_america'))
-        self.models.append(Continent(key_name='south_america'))
-        self.models.append(Continent(key_name='australia'))
-        self.models.append(Continent(key_name='antarctica'))
+        self.models.append(Continent(key_name='asia',display_text=['asia','Asia'],primary_display_text='Asia'))
+        self.models.append(Continent(key_name='africa',display_text=['africa','Africa'],primary_display_text='Africa'))
+        self.models.append(Continent(key_name='europe',display_text=['europe','Europe'],primary_display_text='Europe'))
+        self.models.append(Continent(key_name='north_america',display_text=['north america','North America'],primary_display_text='North America'))
+        self.models.append(Continent(key_name='south_america',display_text=['south america','South America'],primary_display_text='South America'))
+        self.models.append(Continent(key_name='australia',display_text=['australia','Australia'],primary_display_text='Australia'))
+        self.models.append(Continent(key_name='antarctica',display_text=['antarctica','Antarctica'],primary_display_text='Antarctica'))
     
         return self.models
         

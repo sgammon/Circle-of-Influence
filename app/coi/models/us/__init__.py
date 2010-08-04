@@ -1,1 +1,1 @@
-__protos__ = ['contributions','government','legislation','legislature']
+__protos__ = ['contributions','government','legislation','legislature','state']

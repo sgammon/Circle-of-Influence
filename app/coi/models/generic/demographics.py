@@ -1,11 +1,11 @@
 from google.appengine.ext import db
 from ProvidenceClarity.api.data import DataManager
+from ProvidenceClarity.data.input import DataSource
 from ProvidenceClarity.data.proto import P
 from ProvidenceClarity.data.entity import E
 
 ## Model Imports
 from coi.models.generic.geo import GeoArea
-from coi.models.generic.source import DataSource
 
 
 class DemographicCriterion(E):
