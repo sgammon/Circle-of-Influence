@@ -34,6 +34,15 @@ queue:
   bucket_size: 10
 
 # Data Management Queues
+- name: transaction-queue
+  rate: 1/s
+  bucket_size: 10
+- name: cacher
+  rate: 1/s
+  bucket_size: 10
+- name: indexer
+  rate: 1/s
+  bucket_size: 10
 - name: data-hygiene
   rate: 1/s
   bucket_size: 10

@@ -1,6 +1,6 @@
 # --- Important global application properties
 application: providenceclarity # appengine ID. do not change.
-version: 1-dev # version of app. note: string, not int.
+version: 1-5-dev # version of app. note: string, not int.
 runtime: python # runtime in use. do not change from 'python'.
 api_version: 1 # should not be changed on a whim.
 
