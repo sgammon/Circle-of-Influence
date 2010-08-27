@@ -21,7 +21,12 @@ def get_rules(app):
     """
     rules = [
         Rule('/', endpoint='pc-index', handler='coi.handlers.DemoHandler'),
-        Rule('/favicon.ico', endpoint='favicon', handler='coi.handlers.FaviconHandler'),
+        Rule('/favicon.ico', endpoint='favicon', handler='coi.handlers.FaviconHandler'),        
+
+        ## Dev Rules
+        Rule('/dev/env', endpoint='pc-dev-env', handler='coi.handlers.dev.EnvHandler'),
+        Rule('/dev/platform', endpoint='pc-dev-platform', handler='coi.handlers.dev.PlatformHandler'),        
+
     ]
 
     return rules

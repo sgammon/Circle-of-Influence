@@ -96,75 +96,75 @@ class ProtoHelper(DataManager):
         ## DemographicCriterion series
 
         self.models.append(self.P(_class=DemographicCriterion,
-                            direct_parent=db.Key.from_path('Proto','E'),ancestry_path=['E'],abstract=True,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','E'),ancestry_path=['E'],abstract=True,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))
 
                             
         self.models.append(self.P(_class=AgeBracket,
-                            direct_parent=db.Key.from_path('Proto','DemographicCriterion'),ancestry_path=['E','DemographicCriterion'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicCriterion'),ancestry_path=['E','DemographicCriterion'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))
 
                             
         self.models.append(self.P(_class=Gender,
-                            direct_parent=db.Key.from_path('Proto','DemographicCriterion'),ancestry_path=['E','DemographicCriterion'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=True,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicCriterion'),ancestry_path=['E','DemographicCriterion'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=True,uses_parent=False,uses_id=False,
                             created_modified=True,keyname_use="Basic name of gender (male/female)."))
 
                             
         self.models.append(self.P(_class=Ethnicity,
-                            direct_parent=db.Key.from_path('Proto','DemographicCriterion'),ancestry_path=['E','DemographicCriterion'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicCriterion'),ancestry_path=['E','DemographicCriterion'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))
 
                             
         self.models.append(self.P(_class=Religion,
-                            direct_parent=db.Key.from_path('Proto','DemographicCriterion'),ancestry_path=['E','DemographicCriterion'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicCriterion'),ancestry_path=['E','DemographicCriterion'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))
                             
                             
         self.models.append(self.P(_class=SexualOrientation,
-                            direct_parent=db.Key.from_path('Proto','DemographicCriterion'),ancestry_path=['E','DemogrpahicCriterion'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicCriterion'),ancestry_path=['E','DemogrpahicCriterion'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True,keyname_use="Common name for sexual orientation."))
                             
         ## DemographicStat series
                             
         self.models.append(self.P(_class=DemographicStat,
-                            direct_parent=db.Key.from_path('Proto','E'),ancestry_path=['E'],abstract=True,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','E'),ancestry_path=['E'],abstract=True,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))
                             
                             
         self.models.append(self.P(_class=DemographicGeoStat,
-                            direct_parent=db.Key.from_path('Proto','DemographicStat'),ancestry_path=['E','DemographicStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicStat'),ancestry_path=['E','DemographicStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))
                             
                             
         self.models.append(self.P(_class=DemographicDateStat,
-                            direct_parent=db.Key.from_path('Proto','DemographicStat'),ancestry_path=['E','DemographicStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicStat'),ancestry_path=['E','DemographicStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))                  
                             
                             
         self.models.append(self.P(_class=DemographicGeoDateStat,
-                            direct_parent=db.Key.from_path('Proto','DemographicGeoStat'),ancestry_path=['E','DemographicStat','DemographicGeoStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicGeoStat'),ancestry_path=['E','DemographicStat','DemographicGeoStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))                            
 
 
         self.models.append(self.P(_class=DemographicDateRangeStat,
-                            direct_parent=db.Key.from_path('Proto','DemographicStat'),ancestry_path=['E','DemographicStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicStat'),ancestry_path=['E','DemographicStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))
                             
                             
         self.models.append(self.P(_class=DemographicDateRangeGeoStat,
-                            direct_parent=db.Key.from_path('Proto','DemographicGeoStat'),ancestry_path=['E','DemographicStat','DemographicGeoStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicGeoStat'),ancestry_path=['E','DemographicStat','DemographicGeoStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))
                             
         self.models.append(self.P(_class=DemographicDateTimeStat,
-                            direct_parent=db.Key.from_path('Proto','DemographicStat'),ancestry_path=['E','DemographicStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicStat'),ancestry_path=['E','DemographicStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))
                             
         self.models.append(self.P(_class=DemographicDateTimeRangeStat,
-                            direct_parent=db.Key.from_path('Proto','DemographicStat'),ancestry_path=['E','DemographicStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicStat'),ancestry_path=['E','DemographicStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))
                             
         self.models.append(self.P(_class=DemographicDateTimeRangeGeoStat,
-                            direct_parent=db.Key.from_path('Proto','DemographicGeoStat'),ancestry_path=['E','DemographicStat','DemographicGeoStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
+                            direct_parent=db.Key.from_path('P','DemographicGeoStat'),ancestry_path=['E','DemographicStat','DemographicGeoStat'],abstract=False,derived=False,is_data=True,poly_model=True,uses_keyname=False,uses_parent=False,uses_id=False,
                             created_modified=True))                                                                                                                
 
         return self.models

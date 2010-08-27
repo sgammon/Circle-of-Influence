@@ -3,3 +3,15 @@
 
 # python compiled files
 *.pyc
+
+# Others
+
+.installed.cfg
+etc/develop-eggs/
+etc/downloads/
+etc/eggs/
+etc/parts/
+!bin/README.txt
+bin/
+!app/dislib/README.txt
+app/distlib

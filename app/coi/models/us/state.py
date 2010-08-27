@@ -4,7 +4,6 @@ from coi.models.generic.state import State
 
 
 class USState(State):
-    
     pass
     
     
