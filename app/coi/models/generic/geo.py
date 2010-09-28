@@ -1,17 +1,16 @@
 from google.appengine.ext import db
-from ProvidenceClarity.api.data import DataManager
-from ProvidenceClarity.data.entity import E
+from ProvidenceClarity import Platform
 
 ## Basic Classes
 
-class GeoPoint(E):
+class GeoPoint(Platform.ext.Entity):
 
     """ Describes a geographic point. """
     coordinates = db.GeoPtProperty(default=None,indexed=True)
     altitude = db.FloatProperty(default=None,indexed=True)
 
 
-class GeoArea(E):
+class GeoArea(Platform.ext.Entity):
     
     """ Describes a geographic area. """
     coordinates = db.ListProperty(db.GeoPt, default=None)
@@ -35,7 +34,7 @@ class LegislativeDistrict(GeoArea):
     
 ## Proto Inserts
 
-class ProtoHelper(DataManager):
+class ProtoHelper(Platform.ext.DataManager):
 
     models = []
 

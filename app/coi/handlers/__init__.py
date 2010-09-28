@@ -2,11 +2,24 @@
 
 from tipfy import RequestHandler, Response, redirect
 from tipfy.ext.jinja2 import render_response
-from ProvidenceClarity.main import PCException
 
-from coi import COI
+from ProvidenceClarity.exceptions import PCException
+from coi import CircleOfInfluence as COI
 
-class FaviconHandler(COI, RequestHandler):
+
+class COIRequestHandler(RequestHandler):
+
+    def __init__(self, *args, **kwargs):
+        
+        self.platform = COI()
+        super(COIRequestHandler, self).__init__(*args, **kwargs)
+    
+
+class COIResponse(Response):
+    pass
+    
+
+class FaviconHandler(COIRequestHandler):
     
     def get(self):
         
@@ -14,10 +27,9 @@ class FaviconHandler(COI, RequestHandler):
         return redirect('/assets/images/static/favicon.ico')
         
 
-class DemoHandler(COI, RequestHandler):
+class DemoHandler(COIRequestHandler):
     
     def get(self):
         
         """ Experiments with the Stanford Protovis library. """
-        raise PCException
         return render_response("protovis_graph.html")

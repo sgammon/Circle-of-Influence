@@ -1,14 +1,12 @@
 from google.appengine.ext import db
-from ProvidenceClarity.api.data import DataManager
+from ProvidenceClarity import Platform
 from ProvidenceClarity.data.input import DataSource
-from ProvidenceClarity.data.proto import P
-from ProvidenceClarity.data.entity import E
 
 ## Model Imports
 from coi.models.generic.geo import GeoArea
 
 
-class DemographicCriterion(E):
+class DemographicCriterion(Platform.ext.Entity):
 
     """ Describes a data point that can be held about a person or group of people. """
     
@@ -23,7 +21,7 @@ class SexualOrientation(DemographicCriterion): """ Describes a sexual orientatio
 
 ## Statistics
 
-class DemographicStat(E):
+class DemographicStat(Platform.ext.Entity):
     
     """ Describes the percentage and count of a demographic criterion. """
     source = db.ReferenceProperty(DataSource, collection_name="demographic_stats")
@@ -87,7 +85,7 @@ class DemographicDateTimeRangeGeoStat(DemographicGeoStat):
     
 ## Proto Inserts
 
-class ProtoHelper(DataManager):
+class ProtoHelper(Platform.ext.DataManager):
 
     models = []
 

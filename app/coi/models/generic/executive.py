@@ -1,10 +1,8 @@
 from google.appengine.ext import db
-from ProvidenceClarity.api.data import DataManager
-from ProvidenceClarity.data.proto import P
-from ProvidenceClarity.data.entity import E
+from ProvidenceClarity import Platform
 from coi.models.generic.government import GovtOffice
 
-class ExecutiveBody(E):
+class ExecutiveBody(Platform.ext.Entity):
     
     """ Describes an executive agency or other executive institution. """
     pass
@@ -16,7 +14,7 @@ class ExecutiveOffice(GovtOffice):
     
 ## Proto Inserts
 
-class ProtoHelper(DataManager):
+class ProtoHelper(Platform.ext.DataManager):
 
     models = []
 

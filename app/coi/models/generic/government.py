@@ -1,10 +1,8 @@
 from google.appengine.ext import db
-from ProvidenceClarity.api.data import DataManager
-from ProvidenceClarity.data.proto import P
-from ProvidenceClarity.data.entity import E
+from ProvidenceClarity import Platform
 from coi.models.generic.office import Office
 
-class Government(E):
+class Government(Platform.ext.Entity):
     """ Describes a government. """
     pass
 
@@ -15,7 +13,7 @@ class GovtOffice(Office):
     
 ## Proto Inserts
 
-class ProtoHelper(DataManager):
+class ProtoHelper(Platform.ext.DataManager):
 
     models = []
 

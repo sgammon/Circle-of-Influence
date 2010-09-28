@@ -1,11 +1,9 @@
 from google.appengine.ext import db
-from ProvidenceClarity.api.data import DataManager
-from ProvidenceClarity.data.proto import P
-from ProvidenceClarity.data.entity import E
+from ProvidenceClarity import Platform
 
 ## Abstract Models
 
-class Office(E):
+class Office(Platform.ext.Entity):
     """Describes an office that a person can hold."""
     filled = db.DateProperty()
     left = db.DateProperty()
@@ -13,7 +11,7 @@ class Office(E):
     
 ## Proto Inserts
 
-class ProtoHelper(DataManager):
+class ProtoHelper(Platform.ext.DataManager):
 
     models = []
 

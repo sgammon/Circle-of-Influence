@@ -1,4 +1,6 @@
 queue:
+
+total_storage_limit: 1G
     
 # Obligatory default queue
 - name: default

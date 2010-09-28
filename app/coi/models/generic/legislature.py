@@ -1,17 +1,14 @@
 from google.appengine.ext import db
-from ProvidenceClarity.api.data import DataManager
-from ProvidenceClarity.data.proto import P
-from ProvidenceClarity.data.entity import E
-
+from ProvidenceClarity import Platform
 from coi.models.generic.government import GovtOffice
 
-class LegislativeBody(E):
+class LegislativeBody(Platform.ext.Entity):
     """ Describes a body that forms and passes legislation. """
     
     short_name = db.StringProperty()
     long_name = db.StringProperty()
     
-class LegislativeHouse(E):
+class LegislativeHouse(Platform.ext.Entity):
     
     """ Describes a house in a legislature, like a senate or house of representatives. """
     
@@ -20,7 +17,7 @@ class LegislativeHouse(E):
     body = db.ReferenceProperty(LegislativeBody, collection_name="houses")
     status = db.StringProperty(choices=['upper','lower'],default=None)
     
-class LegislativeSession(E):
+class LegislativeSession(Platform.ext.Entity):
     
     """ Describes a calendar session wherein a legislature works on legislation. """
     
@@ -51,7 +48,7 @@ class StateBasedOffice(LegislativeOffice):
     
 ## Proto Inserts
 
-class ProtoHelper(DataManager):
+class ProtoHelper(Platform.ext.DataManager):
 
     models = []
 
